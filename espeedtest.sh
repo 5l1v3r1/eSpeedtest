@@ -2,7 +2,7 @@
 
 ###############################################################################
 # espeedtest.sh
-# espeedtest.sh is a speedtest script to test your network bandwidth. If you
+# espeedtest.sh is a shell script to test your network bandwidth. If you
 # are unable to run this script with ./espeedtest.sh then you probably need to
 # set it's permissions. You can do this by typing the following:
 #
