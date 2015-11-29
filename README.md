@@ -10,4 +10,6 @@ chmod 755 espeedtest.sh
 after this has been done, you can type `./espeedtest.sh` to run the script.
 
 # Requirement
+- CentOS
+- Debian
 This script tested on CentOS 7 and Debian 7 only.
