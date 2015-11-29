@@ -16,7 +16,7 @@ DL_SERVER=download.speedtest.com.hk
 UL_SERVER=upload.speedtest.com.hk
 USER=anonymous
 PASS=anonymous
-FILE=700MBvideo.zip # 100MBvideo.zip/700MBvideo.zip
+FILE=100MBvideo.zip # 100MBvideo.zip/700MBvideo.zip
 OS=`uname`;
 
 if [ "$OS" = "FreeBSD" ]; then
