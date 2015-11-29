@@ -16,7 +16,7 @@ DL_SERVER=download.speedtest.com.hk
 UL_SERVER=upload.speedtest.com.hk
 USER=anonymous
 PASS=anonymous
-FILE=700MBvideo.zip
+FILE=700MBvideo.zip # 100MBvideo.zip/700MBvideo.zip
 OS=`uname`;
 
 if [ "$OS" = "FreeBSD" ]; then
@@ -65,5 +65,5 @@ UL_SPEED=$(upload | grep $RESULT_KEYWORD | sed 's/^.*(//g' | sed "s/ $RESULT_KEY
 # Submit the result to Google Form via curl
 # curl 'https://docs.google.com/forms/d/<form_id>/formResponse' -H 'user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36' -H 'content-type: application/x-www-form-urlencoded' --data 'entry.<q_id>='$DL_SPEED'&entry.<q_id>='$UL_SPEED --compressed > /dev/null 2>&1
 
-echo $DL_SPEED
-echo $UL_SPEED
+echo "Download Speed : $DL_SPEED byte/s"
+echo "Upload Speed : $UL_SPEED byte/s"
