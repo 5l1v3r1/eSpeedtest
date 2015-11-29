@@ -8,3 +8,6 @@ chmod 755 speedtest.sh
 ```
 
 after this has been done, you can type `./speedtest.sh` to run the script.
+
+# Requirement
+This script tested on CentOS 7 and Debian 7 only.
