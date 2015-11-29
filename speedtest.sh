@@ -12,6 +12,11 @@
 #
 ###############################################################################
 
+DL_SERVER=download.speedtest.com.hk
+UL_SERVER=upload.speedtest.com.hk
+USER=anonymous
+PASS=anonymous
+FILE=700MBvideo.zip
 OS=`uname`;
 
 if [ "$OS" = "FreeBSD" ]; then
@@ -36,32 +41,26 @@ else
     RESULT_KEYWORD=Kbyte
 fi
 
-DL_SERVER=download.speedtest.com.hk
-UL_SERVER=upload.speedtest.com.hk
-USER=anonymous
-PASS=anonymous
-FILE=700MBvideo.zip
-
-DOWNLOAD_CMD=`
-$FTP_PATH -vn $DL_SERVER << DOWNLOAD
-user $USER $PASS
-get $FILE
-bye
+function download {
+    $FTP_PATH -vn $DL_SERVER << DOWNLOAD
+    user $USER $PASS
+    get $FILE
+    bye
 DOWNLOAD
-`
+}
 
-UPLOAD_CMD=`
-$FTP_PATH -vn $UL_SERVER << UPLOAD
-user $USER $PASS
-put $FILE
-bye
+function upload {
+    $FTP_PATH -vn $UL_SERVER << UPLOAD
+    user $USER $PASS
+    put $FILE
+    bye
 UPLOAD
-`
+}
+
+DL_SPEED=$(download | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g")
+UL_SPEED=$(upload | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g")
 
 /bin/rm -rf $FILE
-
-DL_SPEED=$DOWNLOAD_CMD | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g"
-UL_SPEED=$UPLOAD_CMD | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g"
 
 # Submit the result to Google Form via curl
 # curl 'https://docs.google.com/forms/d/<form_id>/formResponse' -H 'user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36' -H 'content-type: application/x-www-form-urlencoded' --data 'entry.<q_id>='$DL_SPEED'&entry.<q_id>='$UL_SPEED --compressed > /dev/null 2>&1
