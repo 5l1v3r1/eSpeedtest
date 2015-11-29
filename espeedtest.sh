@@ -1,14 +1,14 @@
 #!/bin/sh
 
 ###############################################################################
-# speedtest.sh
-# speedtest.sh is a speedtest script to test your network bandwidth. If you
-# are unable to run this script with ./speedtest.sh then you probably need to
+# espeedtest.sh
+# espeedtest.sh is a speedtest script to test your network bandwidth. If you
+# are unable to run this script with ./espeedtest.sh then you probably need to
 # set it's permissions. You can do this by typing the following:
 #
-# chmod 755 speedtest.sh
+# chmod 755 espeedtest.sh
 #
-# after this has been done, you can type ./speedtest.sh to run the script.
+# after this has been done, you can type ./espeedtest.sh to run the script.
 #
 ###############################################################################
 
