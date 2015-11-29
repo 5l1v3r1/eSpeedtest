@@ -57,8 +57,8 @@ function upload {
 UPLOAD
 }
 
-DL_SPEED=$(download | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g")
-UL_SPEED=$(upload | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g")
+DL_SPEED=$(download | grep $RESULT_KEYWORD | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g")
+UL_SPEED=$(upload | grep $RESULT_KEYWORD | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g")
 
 /bin/rm -rf $FILE
 
