@@ -58,7 +58,7 @@ bye
 UPLOAD
 `
 
-rm -rf $FILE
+/bin/rm -rf $FILE
 
 DL_SPEED=$DOWNLOAD_CMD | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g"
 UL_SPEED=$UPLOAD_CMD | sed 's/^.*(//g' | sed "s/ $RESULT_KEYWORD.*//g"
