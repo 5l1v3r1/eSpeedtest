@@ -15,14 +15,14 @@
 OS=`uname`;
 
 if [ "$OS" = "FreeBSD" ]; then
-	FTP_PATH=/usr/local/bin/ftp
+    FTP_PATH=/usr/local/bin/ftp
 else
-	FTP_PATH=/usr/bin/ftp
+    FTP_PATH=/usr/bin/ftp
 fi
 
 if [ ! -e $FTP_PATH ]; then
     echo "Cannot find ftp. Please install ftp first";
-	exit 1;
+    exit 1;
 fi
 
 REDHAT_RELEASE=/etc/redhat-release
